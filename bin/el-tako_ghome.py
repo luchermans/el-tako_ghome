@@ -16,14 +16,13 @@ import urllib
 import argparse
 import datetime
 import uvicorn
+import requests
 from hashlib import sha256
 from starlette.staticfiles import StaticFiles
 from starlette.responses import Response, JSONResponse
-from fastapi import FastAPI, Query, Body, APIRouter, Request, HTTPException, Depends, Security
+from fastapi import FastAPI, APIRouter, Request, HTTPException, Depends, Security, Body
 from fastapi.responses import RedirectResponse
 from fastapi.security import HTTPBearer
-from pydantic import BaseModel
-from typing import Dict, List
 
 
 VERSION = "0.0.1"
@@ -76,28 +75,11 @@ def jwt_decode(token):
 route_ghome = APIRouter()
 
 
-class InputType(BaseModel):
-    intent: str = None
-    payload: Dict = None
-    _EXAMPLE = [{
-        "intent": "action.devices.EXECUTE",
-        "payload": {
-           "commands":[{
-              "devices": [{"id": "pc"}, {"id": "device_id123"}],
-              "execution": [{
-                  "command": "action.devices.commands.OnOff",
-                  "params": {"on": True}
-               }]
-            }]
-         }
-   }]
-
 bearer_scheme = HTTPBearer(scheme_name="BearerAuth")
 async def sec_access(token: str = Security(bearer_scheme)):
     return jwt_decode(token.credentials)
 
 
-@route_ghome.post("/auth", tags=["googhe smart home"], summary="Auth")
 @route_ghome.post("/auth/", tags=["googhe smart home"], summary="Auth")
 async def ghome_auth(req: Request):
     """ Authorization request from Google
@@ -131,7 +113,6 @@ async def ghome_auth(req: Request):
 
 @route_ghome.get("/token", tags=["googhe smart home"], summary="Token")
 @route_ghome.post("/token", tags=["googhe smart home"], summary="Token")
-@route_ghome.post("/token/", tags=["googhe smart home"], summary="Token")
 async def ghome_token(req: Request):
     headers = dict(req.headers)
     fpars = await req.form()
@@ -150,35 +131,45 @@ async def ghome_token(req: Request):
     resp = {"token_type": "Bearer", "access_token": token, "refresh_token": token, "expires_in": 60*60*24}
     return JSONResponse(resp)
 
-
-@route_ghome.get("/", tags=["googhe smart home"], summary="Google Assistant")
-async def ghome_ready():
-    return f"Your smart home {ini['MYHOME']} is ready."
-
+# example post data see https://developers.home.google.com/cloud-to-cloud/integration/query-execute
+EXAMPLE_POST_DATA = {
+    "requestId": "som_id",
+    "inputs":[{
+        "intent": "action.devices.EXECUTE",
+        "payload": {
+           "commands":[{
+              "devices": [{"id": "pc"}, {"id": "device_id123"}],
+              "execution": [{
+                  "command": "action.devices.commands.OnOff",
+                  "params": {"on": True}
+              }]
+           }]
+        }
+    }]
+}
 
 @route_ghome.post("/", tags=["googhe smart home"], summary="Google Assistant")
-async def ghome_fullfit(req: Request, requestId: str=None,
-                        inputs: List[InputType] = Body(..., example=InputType()._EXAMPLE),
-                        tok: str=Depends(sec_access)):
-    res = {'requestId': requestId}
-    log('fullfit', {'remote': req.client.host, 'inputs': inputs})
+async def ghome_fullfit(req: Request, post_data: dict = Body(..., example=EXAMPLE_POST_DATA), tok: str=Depends(sec_access)):
+    log('fullfit', {'remote': req.client.host, 'post_data': post_data})
+    res = {'requestId': post_data.get('requestId')}
+    inputs = post_data.get('inputs', [])
     for inp in inputs:
-        if not inp.payload:
-            inp.payload = {}
+        payload = inp.get('payload', {})
+        intent = inp.get('intent')
 
-        if inp.intent == "action.devices.SYNC":     # return devices list
+        if intent == "action.devices.SYNC":     # return devices list
             res['payload'] = {"agentUserId": tok['usr'], "devices": devices}
 
-        if inp.intent == "action.devices.QUERY":    # return device status
+        if intent == "action.devices.QUERY":    # return device status
             res['payload'] = {"devices": {}}
-            for dev in inp.payload.get('devices', []):
+            for dev in payload.get('devices', []):
                 id = dev['id']
                 customdat = dev.get('customData')
                 res['payload']['devices'][id] = dev_stat.get(id, {"online": False, "on": False})
 
-        if inp.intent == "action.devices.EXECUTE":      # Execute a command
+        if intent == "action.devices.EXECUTE":      # Execute a command
             res['payload'] = {'commands': []}
-            for cmd in inp.payload.get('commands', {}):
+            for cmd in payload.get('commands', {}):
                 for dev in cmd.get('devices', {}):
                     id = dev['id']
                     customdat = dev.get('customData')
@@ -196,11 +187,17 @@ async def ghome_fullfit(req: Request, requestId: str=None,
                             dev_stat[id]['brightness'] = pars.get('brightness', pars.get('brightnessRelativePercent', br))
                         res['payload']['commands'].append({"ids": [id], "status": "SUCCESS", "states": dev_stat[id]})
 
-        if inp.intent == "action.devices.DISCONNECT":   # Disconnect user
+        if intent == "action.devices.DISCONNECT":   # Disconnect user
             log('Disconnect', {'remote': req.client.host, 'tok': tok})
             return {}
 
     return JSONResponse(res)
+
+
+@route_ghome.get("/resync", tags=["googhe smart home"], summary="Google Assistant")
+async def ghome_fullfit(req: Request, username: str, tok: str=Depends(sec_access)):
+    r = await re_sync(username)
+    return Response(content=r.content, status_code=r.status_code, headers=r.headers)
 
 
 def fastapi_run(ini):
@@ -221,6 +218,7 @@ def fastapi_run(ini):
 def re_sync(usr):
     url = "https://homegraph.googleapis.com/v1/devices:requestSync?key=" + ini['GOOGLE']['api_key']
     r = requests.post(url, data=json.dumps({"agentUserId": usr}))
+    return r
 
 
 """-----------------------------------------------------------------------    
