@@ -8,7 +8,6 @@
     V1.00 2021-01-04 LH     initial
     V1.01 2023-01-13 LH     add switch turn_on, turn_off or toggle
 """
-import os
 import time
 import json
 import jwt
@@ -132,6 +131,7 @@ async def ghome_token(req: Request):
     return JSONResponse(resp)
 
 # example post data see https://developers.home.google.com/cloud-to-cloud/integration/query-execute
+# https://developers.home.google.com/reference/home-graph/rest
 EXAMPLE_POST_DATA = {
     "requestId": "som_id",
     "inputs":[{
@@ -241,4 +241,9 @@ if __name__ == '__main__':        # Run from command line
         devices = json.load(f)
     for dev in devices:
         dev_stat[dev['id']] =  {"online": True, "on": False}
+
+    usr = list(ini['USERS'].keys())[0]
+    tok = {'usr': usr, 'myhone': ini['MYHOME'], 'exp': int(time.time()) + 60*60*12}  # expires in 10 sec
+    print('test TOKEN:', jwt.encode(tok, ini['JWT']['secret'], algorithm=ini['JWT']['algo']))
+
     fastapi_run(ini)

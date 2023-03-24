@@ -1,27 +1,846 @@
-[{
-   "id": "pc",
-    "type": "action.devices.types.SWITCH",
-    "traits": [
-        "action.devices.traits.OnOff"
-    ],
-    "name": {
-        "name": "PC",
-        "defaultNames": [
-          "PC",
-          "Computer"
-        ],
-        "nicknames": [
-          "PC",
-          "Computer"
+[
+    {
+        "id": "all_off",
+        "roomHint": "Central",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Alles uit",
+            "defaultNames": [
+                "Alles uit"
+            ],
+            "nicknames": [
+                "Alles uit"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "button",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
         ]
     },
-    "willReportState": false,
-    "roomHint": "My room",
-    "deviceInfo": {
-        "manufacturer": "Cluster",
-        "model": "1",
-        "hwVersion": "1",
-        "swVersion": "1"
+    {
+        "id": "all_up",
+        "roomHint": "Central",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Alle screens up",
+            "defaultNames": [
+                "Alle screens up"
+            ],
+            "nicknames": [
+                "Alle screens up"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "button",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "all_down",
+        "roomHint": "Central",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Alle screens down",
+            "defaultNames": [
+                "Alle screens down"
+            ],
+            "nicknames": [
+                "Alle screens down"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "button",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000001",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Straat",
+            "defaultNames": [
+                "Screen Straat"
+            ],
+            "nicknames": [
+                "Screen Straat"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000002",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Tuin",
+            "defaultNames": [
+                "Screen Tuin"
+            ],
+            "nicknames": [
+                "Screen Tuin"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000003",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Hoek",
+            "defaultNames": [
+                "Screen Hoek"
+            ],
+            "nicknames": [
+                "Screen Hoek"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000004",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Keuken",
+            "defaultNames": [
+                "Screen Keuken"
+            ],
+            "nicknames": [
+                "Screen Keuken"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000008",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Zithoek dim",
+            "defaultNames": [
+                "Zithoek dim"
+            ],
+            "nicknames": [
+                "Zithoek dim"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FUD14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff",
+            "action.devices.traits.Brightness"
+        ]
+    },
+    {
+        "id": "00000009",
+        "roomHint": "Keuken",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Eetkamer dim",
+            "defaultNames": [
+                "Eetkamer dim"
+            ],
+            "nicknames": [
+                "Eetkamer dim"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FUD14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff",
+            "action.devices.traits.Brightness"
+        ]
+    },
+    {
+        "id": "0000000a",
+        "roomHint": "Keuken",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Keuken dim",
+            "defaultNames": [
+                "Keuken dim"
+            ],
+            "nicknames": [
+                "Keuken dim"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FUD14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff",
+            "action.devices.traits.Brightness"
+        ]
+    },
+    {
+        "id": "0000000c",
+        "roomHint": "Keuken",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Eettafel",
+            "defaultNames": [
+                "Eettafel"
+            ],
+            "nicknames": [
+                "Eettafel"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000000d",
+        "roomHint": "Keuken",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "LED",
+            "defaultNames": [
+                "LED"
+            ],
+            "nicknames": [
+                "LED"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000000f",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Inkom",
+            "defaultNames": [
+                "Inkom"
+            ],
+            "nicknames": [
+                "Inkom"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000010",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Hal",
+            "defaultNames": [
+                "Hal"
+            ],
+            "nicknames": [
+                "Hal"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000011",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "WC",
+            "defaultNames": [
+                "WC"
+            ],
+            "nicknames": [
+                "WC"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000013",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Bureau",
+            "defaultNames": [
+                "Bureau"
+            ],
+            "nicknames": [
+                "Bureau"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000015",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "TV LED",
+            "defaultNames": [
+                "TV LED"
+            ],
+            "nicknames": [
+                "TV LED"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000016",
+        "roomHint": "Keuken",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Eetkamer Lamp",
+            "defaultNames": [
+                "Eetkamer Lamp"
+            ],
+            "nicknames": [
+                "Eetkamer Lamp"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000017",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "WC",
+            "defaultNames": [
+                "WC"
+            ],
+            "nicknames": [
+                "WC"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000018",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Hal",
+            "defaultNames": [
+                "Hal"
+            ],
+            "nicknames": [
+                "Hal"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000005",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Hal",
+            "defaultNames": [
+                "Screen Hal"
+            ],
+            "nicknames": [
+                "Screen Hal"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000006",
+        "roomHint": "Screens",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Screen Slaap",
+            "defaultNames": [
+                "Screen Slaap"
+            ],
+            "nicknames": [
+                "Screen Slaap"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSB14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000007",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Slaapkamer dim",
+            "defaultNames": [
+                "Slaapkamer dim"
+            ],
+            "nicknames": [
+                "Slaapkamer dim"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FUD14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff",
+            "action.devices.traits.Brightness"
+        ]
+    },
+    {
+        "id": "00000019",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Nachtlampje",
+            "defaultNames": [
+                "Nachtlampje"
+            ],
+            "nicknames": [
+                "Nachtlampje"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000001b",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Slaapkamer 2",
+            "defaultNames": [
+                "Slaapkamer 2"
+            ],
+            "nicknames": [
+                "Slaapkamer 2"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000001c",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Slaapkamer 3",
+            "defaultNames": [
+                "Slaapkamer 3"
+            ],
+            "nicknames": [
+                "Slaapkamer 3"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000001d",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Led trap",
+            "defaultNames": [
+                "Led trap"
+            ],
+            "nicknames": [
+                "Led trap"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000001e",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Led trap kelder",
+            "defaultNames": [
+                "Led trap kelder"
+            ],
+            "nicknames": [
+                "Led trap kelder"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000020",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Berging kelder",
+            "defaultNames": [
+                "Berging kelder"
+            ],
+            "nicknames": [
+                "Berging kelder"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000021",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Mancave",
+            "defaultNames": [
+                "Mancave"
+            ],
+            "nicknames": [
+                "Mancave"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000023",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Technische ruimte",
+            "defaultNames": [
+                "Technische ruimte"
+            ],
+            "nicknames": [
+                "Technische ruimte"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000024",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Kelder patio",
+            "defaultNames": [
+                "Kelder patio"
+            ],
+            "nicknames": [
+                "Kelder patio"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000026",
+        "roomHint": "Kelder",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Kelder 6",
+            "defaultNames": [
+                "Kelder 6"
+            ],
+            "nicknames": [
+                "Kelder 6"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "00000029",
+        "roomHint": "Boven",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Badkamer",
+            "defaultNames": [
+                "Badkamer"
+            ],
+            "nicknames": [
+                "Badkamer"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
+    },
+    {
+        "id": "0000002c",
+        "roomHint": "Living",
+        "type": "action.devices.types.SWITCH",
+        "willReportState": true,
+        "name": {
+            "name": "Berging",
+            "defaultNames": [
+                "Berging"
+            ],
+            "nicknames": [
+                "Berging"
+            ]
+        },
+        "deviceInfo": {
+            "manufacturer": "eltako",
+            "model": "FSR14",
+            "hwVersion": "1.0",
+            "swVersion": "1.0"
+        },
+        "traits": [
+            "action.devices.traits.OnOff"
+        ]
     }
-}]
-
+]
