@@ -5,7 +5,7 @@
     FAM14 (pos 4)  FTS14EM, FUD14, FSR14  FSB14
 
     Version Date  Author	Comment
-    V1.00 2023-01-04 LH     initial thanks to
+    V1.00 2023-01-04 LH     initial thanks to https://github.com/ClusterM/google-assistant-smart-home
     V1.01 2023-01-13 LH     add switch turn_on, turn_off or toggle
 """
 import time
@@ -215,6 +215,7 @@ def fastapi_run(ini):
     if 'STATIC_DIR' in ini:   # LAST route to include
         app.mount("/", StaticFiles(directory=ini['STATIC_DIR'], html=True), name="static")
     # run main service
+    log(f"Docs http://127.0.0.1:{ini['HTTP_PORT']}/auth")
     log(f"Docs http://127.0.0.1:{ini['HTTP_PORT']}/docs")
     uvicorn.run(app, host='0.0.0.0', port=ini['HTTP_PORT'])
     log(f"ERROR: fastapi stopped: http port:{ini['HTTP_PORT']}")
