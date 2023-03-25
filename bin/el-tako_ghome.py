@@ -5,7 +5,7 @@
     FAM14 (pos 4)  FTS14EM, FUD14, FSR14  FSB14
 
     Version Date  Author	Comment
-    V1.00 2021-01-04 LH     initial
+    V1.00 2023-01-04 LH     initial thanks to
     V1.01 2023-01-13 LH     add switch turn_on, turn_off or toggle
 """
 import time
@@ -23,6 +23,11 @@ from fastapi import FastAPI, APIRouter, Request, HTTPException, Depends, Securit
 from fastapi.responses import RedirectResponse
 from fastapi.security import HTTPBearer
 
+DEMO = 1
+if DEMO:
+    import speak_driver as drv
+else:
+    import eltako_home_driver as drv
 
 VERSION = "0.0.1"
 AUTHOR = "(c) 2023 LuHe"
@@ -30,11 +35,11 @@ APPNAME = "El-tako Google Home Assistent"
 DEBUG = False
 dev_stat = {}
 
-
 ini = {
     "HTTP_PORT": 8088,
     "STATIC_DIR": "../www",
     "API_BASE": "",
+    "TAKO_HOME_API": "http://127.0.0.1:8088/tako-home/api/switch",
     "MYHOME": "my home name",
     "DEVICES": "devices.json",
     "USERS": {"your username": "your_paswwoord_hash SHA256"},
@@ -138,7 +143,7 @@ EXAMPLE_POST_DATA = {
         "intent": "action.devices.EXECUTE",
         "payload": {
            "commands":[{
-              "devices": [{"id": "pc"}, {"id": "device_id123"}],
+              "devices": [{"id": "Living.TV"}, {"id": "Keuken.LED"}],
               "execution": [{
                   "command": "action.devices.commands.OnOff",
                   "params": {"on": True}
@@ -164,7 +169,6 @@ async def ghome_fullfit(req: Request, post_data: dict = Body(..., example=EXAMPL
             res['payload'] = {"devices": {}}
             for dev in payload.get('devices', []):
                 id = dev['id']
-                customdat = dev.get('customData')
                 res['payload']['devices'][id] = dev_stat.get(id, {"online": False, "on": False})
 
         if intent == "action.devices.EXECUTE":      # Execute a command
@@ -172,7 +176,6 @@ async def ghome_fullfit(req: Request, post_data: dict = Body(..., example=EXAMPL
             for cmd in payload.get('commands', {}):
                 for dev in cmd.get('devices', {}):
                     id = dev['id']
-                    customdat = dev.get('customData')
                     if id not in dev_stat:
                         res['payload']['commands'].append({"ids": [id], "status": "ERROR", "errorCode": "deviceMotFound"})
                         continue
@@ -181,10 +184,12 @@ async def ghome_fullfit(req: Request, post_data: dict = Body(..., example=EXAMPL
                         pars = exe.get('params', {})
                         if exe_cmd == 'action.devices.commands.OnOff':
                             dev_stat[id]['on'] = pars.get('on', False)
+                            drv.switch(id, dev_stat[id]['on'])
                         if exe_cmd == 'action.devices.commands.BrightnessAbsolute' or \
                            exe_cmd == 'action.devices.commands.BrightnessRelative':
                             br = dev_stat[id].get('brightness', 0)
                             dev_stat[id]['brightness'] = pars.get('brightness', pars.get('brightnessRelativePercent', br))
+                            drv.brightness(id, dev_stat[id]['brightness'])
                         res['payload']['commands'].append({"ids": [id], "status": "SUCCESS", "states": dev_stat[id]})
 
         if intent == "action.devices.DISCONNECT":   # Disconnect user
@@ -210,7 +215,7 @@ def fastapi_run(ini):
     if 'STATIC_DIR' in ini:   # LAST route to include
         app.mount("/", StaticFiles(directory=ini['STATIC_DIR'], html=True), name="static")
     # run main service
-    log(f"see DOCS http://127.0.0.1:{ini['HTTP_PORT']}/docs")
+    log(f"Docs http://127.0.0.1:{ini['HTTP_PORT']}/docs")
     uvicorn.run(app, host='0.0.0.0', port=ini['HTTP_PORT'])
     log(f"ERROR: fastapi stopped: http port:{ini['HTTP_PORT']}")
 
@@ -235,13 +240,16 @@ if __name__ == '__main__':        # Run from command line
     with open(args.config, encoding='utf-8') as f:
         ini_rd = json.load(f)
     ini.update(ini_rd)
+    drv.init(ini['TAKO_HOME_API'])
 
     # read device config
     with open(ini['DEVICES'], encoding='utf-8') as f:
         devices = json.load(f)
     for dev in devices:
         dev_stat[dev['id']] =  {"online": True, "on": False}
-
+        if "action.devices.traits.Brightness" in dev['traits']:
+            dev_stat[dev['id']]["brightness"] = 0
+            # build and print a test token
     usr = list(ini['USERS'].keys())[0]
     tok = {'usr': usr, 'myhone': ini['MYHOME'], 'exp': int(time.time()) + 60*60*12}  # expires in 10 sec
     print('test TOKEN:', jwt.encode(tok, ini['JWT']['secret'], algorithm=ini['JWT']['algo']))

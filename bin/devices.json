@@ -1,6 +1,6 @@
 [
     {
-        "id": "all_off",
+        "id": "Central.Alles uit",
         "roomHint": "Central",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -24,7 +24,7 @@
         ]
     },
     {
-        "id": "all_up",
+        "id": "Central.Alle screens up",
         "roomHint": "Central",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -48,7 +48,7 @@
         ]
     },
     {
-        "id": "all_down",
+        "id": "Central.Alle screens down",
         "roomHint": "Central",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -72,7 +72,7 @@
         ]
     },
     {
-        "id": "00000001",
+        "id": "Screens.Screen Straat",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -96,7 +96,7 @@
         ]
     },
     {
-        "id": "00000002",
+        "id": "Screens.Screen Tuin",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -120,7 +120,7 @@
         ]
     },
     {
-        "id": "00000003",
+        "id": "Screens.Screen Hoek",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -144,7 +144,7 @@
         ]
     },
     {
-        "id": "00000004",
+        "id": "Screens.Screen Keuken",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -168,7 +168,7 @@
         ]
     },
     {
-        "id": "00000008",
+        "id": "Living.Zithoek dim",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -193,7 +193,7 @@
         ]
     },
     {
-        "id": "00000009",
+        "id": "Keuken.Eetkamer dim",
         "roomHint": "Keuken",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -218,7 +218,7 @@
         ]
     },
     {
-        "id": "0000000a",
+        "id": "Keuken.Keuken dim",
         "roomHint": "Keuken",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -243,7 +243,7 @@
         ]
     },
     {
-        "id": "0000000c",
+        "id": "Keuken.Eettafel",
         "roomHint": "Keuken",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -267,7 +267,7 @@
         ]
     },
     {
-        "id": "0000000d",
+        "id": "Keuken.LED",
         "roomHint": "Keuken",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -291,7 +291,7 @@
         ]
     },
     {
-        "id": "0000000f",
+        "id": "Living.Inkom",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -315,7 +315,7 @@
         ]
     },
     {
-        "id": "00000010",
+        "id": "Living.Hal",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -339,7 +339,7 @@
         ]
     },
     {
-        "id": "00000011",
+        "id": "Living.WC",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -363,7 +363,7 @@
         ]
     },
     {
-        "id": "00000013",
+        "id": "Living.Bureau",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -387,7 +387,7 @@
         ]
     },
     {
-        "id": "00000015",
+        "id": "Living.TV LED",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -411,7 +411,7 @@
         ]
     },
     {
-        "id": "00000016",
+        "id": "Keuken.Eetkamer Lamp",
         "roomHint": "Keuken",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -435,7 +435,7 @@
         ]
     },
     {
-        "id": "00000017",
+        "id": "Boven.WC",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -459,7 +459,7 @@
         ]
     },
     {
-        "id": "00000018",
+        "id": "Boven.Hal",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -483,7 +483,7 @@
         ]
     },
     {
-        "id": "00000005",
+        "id": "Screens.Screen Hal",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -507,7 +507,7 @@
         ]
     },
     {
-        "id": "00000006",
+        "id": "Screens.Screen Slaap",
         "roomHint": "Screens",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -531,7 +531,7 @@
         ]
     },
     {
-        "id": "00000007",
+        "id": "Boven.Slaapkamer dim",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -556,7 +556,7 @@
         ]
     },
     {
-        "id": "00000019",
+        "id": "Boven.Nachtlampje",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -580,7 +580,7 @@
         ]
     },
     {
-        "id": "0000001b",
+        "id": "Boven.Slaapkamer 2",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -604,7 +604,7 @@
         ]
     },
     {
-        "id": "0000001c",
+        "id": "Boven.Slaapkamer 3",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -628,7 +628,7 @@
         ]
     },
     {
-        "id": "0000001d",
+        "id": "Boven.Led trap",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -652,7 +652,7 @@
         ]
     },
     {
-        "id": "0000001e",
+        "id": "Kelder.Led trap kelder",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -676,7 +676,7 @@
         ]
     },
     {
-        "id": "00000020",
+        "id": "Kelder.Berging kelder",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -700,7 +700,7 @@
         ]
     },
     {
-        "id": "00000021",
+        "id": "Kelder.Mancave",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -724,7 +724,7 @@
         ]
     },
     {
-        "id": "00000023",
+        "id": "Kelder.Technische ruimte",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -748,7 +748,7 @@
         ]
     },
     {
-        "id": "00000024",
+        "id": "Kelder.Kelder patio",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -772,7 +772,7 @@
         ]
     },
     {
-        "id": "00000026",
+        "id": "Kelder.Kelder 6",
         "roomHint": "Kelder",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -796,7 +796,7 @@
         ]
     },
     {
-        "id": "00000029",
+        "id": "Boven.Badkamer",
         "roomHint": "Boven",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,
@@ -820,7 +820,7 @@
         ]
     },
     {
-        "id": "0000002c",
+        "id": "Living.Berging",
         "roomHint": "Living",
         "type": "action.devices.types.SWITCH",
         "willReportState": true,

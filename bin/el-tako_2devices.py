@@ -13,10 +13,11 @@ import json
 
 def tako_2dev(id, tako):
     """  build googleh home device
-    https: // developers.home.google.com / cloud - to - cloud / intents / sync
+    https://developers.home.google.com/cloud-to-cloud/intents/sync
     """
     name = tako['name']
-    dev = {"id": id, "roomHint": tako['group'] ,"type": "action.devices.types.SWITCH"}
+    tako_id = f"{tako['group']}.{name}"
+    dev = {"id": tako_id, "roomHint": tako['group'] ,"type": "action.devices.types.SWITCH"}
     dev["willReportState"] = True
     dev["name"] = {"name": name, "defaultNames": [name], "nicknames": [name]}
     dev["deviceInfo"] = {"manufacturer": "eltako", "model": tako['typ'],
