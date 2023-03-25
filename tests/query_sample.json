@@ -1,0 +1,45 @@
+{
+"inputs": [{
+    "intent": "action.devices.QUERY",
+    "payload": {
+        "devices": [
+        {"id": "Boven.Slaapkamer 3"}, 
+        {"id": "Living.Hal"},
+        {"id": "Boven.Badkamer"},
+        {"id": "Keuken.LED"},
+        {"id": "Screens.Screen Keuken"},
+        {"id": "Boven.Slaapkamer 2"},
+        {"id": "Kelder.Kelder 6"},
+        {"id": "Boven.Nachtlampje"},
+        {"id": "Screens.Screen Straat"},
+        {"id": "Keuken.Eettafel"},
+        {"id": "Screens.Screen Tuin"},
+        {"id": "Kelder.Mancave"},
+        {"id": "Central.Alle screens up"},
+        {"id": "Living.Bureau"},
+        {"id": "Keuken.Eetkamer Lamp"},
+        {"id": "Boven.WC"},
+        {"id": "Central.Alle screens down"},
+        {"id": "Kelder.Technische ruimte"},
+        {"id": "Living.Inkom"},
+        {"id": "Living.WC"},
+        {"id": "Screens.Screen Hoek"},
+        {"id": "Central.Alles uit"},
+        {"id": "Screens.Screen Slaap"},
+        {"id": "Kelder.Kelder patio"},
+        {"id": "Living.TV LED"},
+        {"id": "Keuken.Eetkamer dim"},
+        {"id": "Screens.Screen Hal"},
+        {"id": "Keuken.Keuken dim"},
+        {"id": "Boven.Hal"},
+        {"id": "Kelder.Berging kelder"},
+        {"id": "Kelder.Led trap kelder"},
+        {"id": "Boven.Slaapkamer dim"},
+        {"id": "Boven.Led trap"},
+        {"id": "Living.Zithoek dim"},
+        {"id": "Living.Berging"}
+        ]
+    }
+}],
+"requestId": "6328373423346190370"
+}

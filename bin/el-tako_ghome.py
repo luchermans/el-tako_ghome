@@ -105,7 +105,7 @@ async def ghome_auth(req: Request):
         log("Invalid auth", {'remote': req.client.host, 'url': req.url, 'headers': headers})
         raise HTTPException(status_code=400, detail="Invalid request")
 
-    tok = {'usr': fpars['usr'], 'myhone': ini['MYHOME'], 'exp': int(time.time()) + 10}  # expires in 10 sec
+    tok = {'usr': fpars['usr'], 'myhone': ini['MYHOME'], 'exp': int(time.time()) + 30}  # expires in 30 sec
     token = jwt.encode(tok, ini['JWT']['secret'], algorithm=ini['JWT']['algo'])
     params = {'state': qpars['state'], 'code': token, 'client_id': qpars['client_id']}
     params['client_secret'] = ini['GOOGLE']['client_secret']    # TODO remove

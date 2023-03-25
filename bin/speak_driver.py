@@ -27,6 +27,6 @@ def brightness(tako, percent):
     speak(txt)
 
 
-if __name__ == '__main__':        # Run from command line
+if __name__ == '__main__':        # Test rom command line
     switch('Keuken.LED', 1)
     brightness('Living.TV', 75)
